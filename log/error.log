@@ -1,0 +1,15 @@
+2018-05-12 01:00:10,934 [ ERROR ]: __main__.chat_server - $(lineno)s Error binding socket
+Traceback (most recent call last):
+  File "/home/cezar_palagesiu/PycharmProjects/hackTM/chat_server.py", line 21, in __init__
+    self.socket_server.bind(self.server_address)
+OSError: [Errno 99] Cannot assign requested address
+2018-05-12 01:07:26,224 [ ERROR ]: __main__.chat_server - $(lineno)s Error binding socket
+Traceback (most recent call last):
+  File "chat_server.py", line 22, in __init__
+    self.socket_server.bind(self.server_address)
+OSError: [Errno 99] Cannot assign requested address
+2018-05-12 01:07:57,414 [ ERROR ]: __main__.chat_server - $(lineno)s Error binding socket
+Traceback (most recent call last):
+  File "chat_server.py", line 22, in __init__
+    self.socket_server.bind(self.server_address)
+OSError: [Errno 99] Cannot assign requested address
