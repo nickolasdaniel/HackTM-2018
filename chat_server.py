@@ -31,7 +31,7 @@ class Server(object):
         try:
             self.socket_server.bind(self.server_address)
         except socket.error as serr:
-            self.__server_logger.exception("Error binding socket")
+            self.__server_logger.exception("[ ERROR ] Error binding socket")
             sys.exit(1)
         if setBlocking:
             self.socket_server.setblocking(1)
@@ -42,7 +42,7 @@ class Server(object):
                 self.socket_server.setsockopt(socket.SOL_SOCKET,socket.SO_REUSEPORT,1)
 
         self.socket_server.listen(5)
-        self.__server_logger.info("[ SERVER ] started listen on ({}:{})".format(self.server_address[0],self.server_address[1]))
+        self.__server_logger.info("[ SERVER ] Started listen on ({}:{})".format(self.server_address[0],self.server_address[1]))
 
         self.inputs = inputs =[self.socket_server]
         self.outputs = []
@@ -58,7 +58,7 @@ class Server(object):
                 for sock in readable:
                     if sock is self.socket_server:
                         client_socket,client_adrr=self.socket_server.accept()
-                        self.__server_logger.info("[ CLIENT ] client just connected {}:{}".format(client_adrr[0],client_adrr[1]))
+                        self.__server_logger.info("[ CLIENT ] Client just connected {}:{}".format(client_adrr[0],client_adrr[1]))
 
                         self.socket_server.setblocking(0)
                         self.inputs.append(client_socket)
@@ -71,7 +71,7 @@ class Server(object):
                     try:
                         message = self.message_queue[sock].get_nowait()
                     except queue.Empty as qerr:
-                        self.__server_logger.exception("[ ERROR ] queue is empty ")
+                        self.__server_logger.exception("[ ERROR ] Queue is empty ")
                         sys.exit(1)
                     else:
                         for client in self.inputs[1:]:
@@ -138,7 +138,7 @@ class Server(object):
         try:
             client_socket.send(message)
         except IOError as kerr:
-            self.__server_logger.error("[ ERROR ] sugi pula")
+            self.__server_logger.error("[ ERROR ] Something wrong with the client")
         else:
             if client_socket in self.outputs:
                 self.outputs.remove(client_socket)
