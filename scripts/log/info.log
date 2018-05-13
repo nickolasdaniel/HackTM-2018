@@ -1,0 +1,82 @@
+2018-05-13 01:20:06,741 [ INFO ]: [ SERVER ] started listen on (10.10.0.193:8080)
+2018-05-13 02:24:47,112 [ INFO ]: [ CLIENT ] client just connected 10.10.0.193:37590
+2018-05-13 02:25:23,131 [ INFO ]: [ CLIENT ] client just connected 10.10.0.193:37596
+2018-05-13 06:39:00,252 [ INFO ]: [ SERVER ] started listen on (10.10.0.193:8080)
+2018-05-13 06:39:05,493 [ INFO ]: [ CLIENT ] client just connected 10.10.0.193:40868
+2018-05-13 06:52:00,552 [ INFO ]: [ SERVER ] started listen on (10.10.0.193:8080)
+2018-05-13 06:52:03,645 [ INFO ]: [ CLIENT ] client just connected 10.10.0.193:41058
+2018-05-13 06:52:46,440 [ INFO ]: [ SERVER ] started listen on (10.10.0.193:8080)
+2018-05-13 06:52:50,792 [ INFO ]: [ CLIENT ] client just connected 10.10.0.193:41066
+2018-05-13 06:53:57,390 [ INFO ]: [ SERVER ] started listen on (10.10.0.193:8080)
+2018-05-13 06:54:02,025 [ INFO ]: [ CLIENT ] client just connected 10.10.0.193:41082
+2018-05-13 06:54:33,332 [ INFO ]: [ SERVER ] started listen on (10.10.0.193:8080)
+2018-05-13 06:54:44,493 [ INFO ]: [ CLIENT ] client just connected 10.10.0.193:41090
+2018-05-13 10:56:01,076 [ INFO ]: [ SERVER ] started listen on (10.10.0.193:8080)
+2018-05-13 10:56:40,800 [ INFO ]: [ CLIENT ] client just connected 10.10.0.193:42656
+2018-05-13 10:57:55,102 [ INFO ]: [ SERVER ] started listen on (10.10.0.193:8080)
+2018-05-13 10:58:06,250 [ INFO ]: [ CLIENT ] client just connected 10.10.0.193:42694
+2018-05-13 11:00:04,094 [ INFO ]: [ SERVER ] started listen on (10.10.0.193:8080)
+2018-05-13 11:00:11,580 [ INFO ]: [ CLIENT ] client just connected 10.10.0.193:42714
+2018-05-13 11:02:24,093 [ INFO ]: [ SERVER ] started listen on (10.10.0.193:8080)
+2018-05-13 11:02:29,295 [ INFO ]: [ CLIENT ] client just connected 10.10.0.193:42762
+2018-05-13 11:05:30,666 [ INFO ]: [ SERVER ] started listen on (10.10.0.193:8080)
+2018-05-13 11:05:38,577 [ INFO ]: [ CLIENT ] client just connected 10.10.0.193:42892
+2018-05-13 11:13:59,291 [ INFO ]: [ SERVER ] started listen on (10.10.0.193:8080)
+2018-05-13 11:14:04,822 [ INFO ]: [ CLIENT ] client just connected 10.10.0.193:43120
+2018-05-13 11:15:39,457 [ INFO ]: [ SERVER ] started listen on (10.10.0.193:8080)
+2018-05-13 11:15:44,560 [ INFO ]: [ CLIENT ] client just connected 10.10.0.193:43134
+2018-05-13 11:19:52,954 [ INFO ]: [ SERVER ] started listen on (10.10.0.193:8080)
+2018-05-13 11:19:55,664 [ INFO ]: [ CLIENT ] client just connected 10.10.0.193:43248
+2018-05-13 11:24:04,310 [ INFO ]: [ SERVER ] started listen on (10.10.0.193:8080)
+2018-05-13 11:24:09,974 [ INFO ]: [ CLIENT ] client just connected 10.10.0.193:43290
+2018-05-13 11:25:20,715 [ INFO ]: [ SERVER ] started listen on (10.10.0.193:8080)
+2018-05-13 11:25:24,622 [ INFO ]: [ CLIENT ] client just connected 10.10.0.193:43304
+2018-05-13 11:25:42,574 [ ERROR ]: [ ERROR ] Error binding socket
+Traceback (most recent call last):
+  File "/home/cezar_palagesiu/PycharmProjects/hacktmIara/scripts/server/main_server.py", line 42, in __init__
+    self.socket_server.bind(self.server_address)
+OSError: [Errno 98] Address already in use
+2018-05-13 11:25:45,236 [ ERROR ]: [ ERROR ] Error binding socket
+Traceback (most recent call last):
+  File "/home/cezar_palagesiu/PycharmProjects/hacktmIara/scripts/server/main_server.py", line 42, in __init__
+    self.socket_server.bind(self.server_address)
+OSError: [Errno 98] Address already in use
+2018-05-13 11:25:46,063 [ ERROR ]: [ ERROR ] Error binding socket
+Traceback (most recent call last):
+  File "/home/cezar_palagesiu/PycharmProjects/hacktmIara/scripts/server/main_server.py", line 42, in __init__
+    self.socket_server.bind(self.server_address)
+OSError: [Errno 98] Address already in use
+2018-05-13 11:25:58,569 [ ERROR ]: [ ERROR ] Error binding socket
+Traceback (most recent call last):
+  File "/home/cezar_palagesiu/PycharmProjects/hacktmIara/scripts/server/main_server.py", line 42, in __init__
+    self.socket_server.bind(self.server_address)
+OSError: [Errno 98] Address already in use
+2018-05-13 11:26:05,221 [ ERROR ]: [ ERROR ] Error binding socket
+Traceback (most recent call last):
+  File "/home/cezar_palagesiu/PycharmProjects/hacktmIara/scripts/server/main_server.py", line 42, in __init__
+    self.socket_server.bind(self.server_address)
+OSError: [Errno 98] Address already in use
+2018-05-13 11:26:06,991 [ ERROR ]: [ ERROR ] Error binding socket
+Traceback (most recent call last):
+  File "/home/cezar_palagesiu/PycharmProjects/hacktmIara/scripts/server/main_server.py", line 42, in __init__
+    self.socket_server.bind(self.server_address)
+OSError: [Errno 98] Address already in use
+2018-05-13 11:26:08,645 [ ERROR ]: [ ERROR ] Error binding socket
+Traceback (most recent call last):
+  File "/home/cezar_palagesiu/PycharmProjects/hacktmIara/scripts/server/main_server.py", line 42, in __init__
+    self.socket_server.bind(self.server_address)
+OSError: [Errno 98] Address already in use
+2018-05-13 11:28:51,939 [ INFO ]: [ SERVER ] started listen on (10.10.0.193:8080)
+2018-05-13 11:28:55,056 [ INFO ]: [ CLIENT ] client just connected 10.10.0.193:43338
+2018-05-13 11:31:23,497 [ INFO ]: [ SERVER ] started listen on (10.10.0.193:8080)
+2018-05-13 11:31:28,089 [ INFO ]: [ CLIENT ] client just connected 10.10.0.193:43360
+2018-05-13 11:33:19,167 [ INFO ]: [ SERVER ] started listen on (10.10.0.193:8080)
+2018-05-13 11:33:25,927 [ INFO ]: [ CLIENT ] client just connected 10.10.0.193:43384
+2018-05-13 11:34:29,061 [ INFO ]: [ SERVER ] started listen on (10.10.0.193:8080)
+2018-05-13 11:34:31,487 [ INFO ]: [ CLIENT ] client just connected 10.10.0.193:43396
+2018-05-13 11:37:22,133 [ INFO ]: [ SERVER ] started listen on (10.10.0.193:8080)
+2018-05-13 11:37:32,068 [ INFO ]: [ CLIENT ] client just connected 10.10.0.193:43430
+2018-05-13 11:43:27,829 [ INFO ]: [ SERVER ] started listen on (10.10.0.193:8080)
+2018-05-13 11:43:30,296 [ INFO ]: [ CLIENT ] client just connected 10.10.0.193:43500
+2018-05-13 11:45:12,048 [ INFO ]: [ SERVER ] started listen on (10.10.0.193:8080)
+2018-05-13 11:45:14,276 [ INFO ]: [ CLIENT ] client just connected 10.10.0.193:43516
