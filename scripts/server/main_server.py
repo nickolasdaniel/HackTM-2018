@@ -5,8 +5,8 @@ import json
 import logging
 from ..exceptions import *
 
-import piplates.RELAYplate as RELAY
-import RPi.GPIO as GPIO
+#import piplates.RELAYplate as RELAY
+#import RPi.GPIO as GPIO
 
 import struct
 try:
@@ -69,7 +69,7 @@ class Server(object):
 
         while self.server_status:
             try:
-                readable, writeable, exceptional = select.select(self.inputs, self.outputs, self.inputs)
+                readable, writeable, exceptional = select.select(self.inputs, [], [])
 
 
 
@@ -80,21 +80,22 @@ class Server(object):
 
                         self.socket_server.setblocking(0)
                         self.inputs.append(client_socket)
-                        self.message_queue[client_socket] = queue.Queue()
-                        self.send_message(client_socket, self.data_to_send)
+                        #self.message_queue[client_socket] = queue.Queue()
+                        #self.send_message(client_socket, self.data_to_send)
                     else:
                         self.handle_client(sock)
 
-                for sock in writeable:
+                '''for sock in writeable:
 
                     try:
-                        self.data_to_send = self.message_queue[sock].get_nowait()
+                        data_send = self.message_queue[sock].get_nowait()
                     except queue.Empty as qerr:
                         self.__server_logger.exception("[ ERROR ] queue is empty ")
                         sys.exit(1)
                     else:
                         for client in self.inputs[1:]:
-                            self.send_message(client,self.data_to_send)
+                            print("Sent data")
+                            self.send_message(client, data_send)
 
 
                 for sock in exceptional:
@@ -108,7 +109,7 @@ class Server(object):
                     del self.message_queue[sock]
 
                     sock.close()
-
+            '''
             except KeyboardInterrupt as kerrr:
                 self.shutdown_server()
 
@@ -118,9 +119,8 @@ class Server(object):
         data_buffer = ""
 
         try:
-            data=client_socket.recv(MAX_RECV_BYTES)
-            unpacked_data=json.loads(data.decode("utf-8"))
-            print(unpacked_data)
+            data_buffer = client_socket.recv(MAX_RECV_BYTES)
+
         except IOError as ierr:
             self.__server_logger.error(str(ierr))
             sys.exit(1)
@@ -129,9 +129,20 @@ class Server(object):
             if not data_buffer:
                 self.disconnect_client(client_socket)
             else:
-                self.message_queue[client_socket].put(data_buffer)
-                if client_socket not in self.outputs:
-                    self.outputs.append(client_socket)
+                unpacked_data = data_buffer.decode("utf-8")
+                print(type(unpacked_data))
+                print(unpacked_data)
+                #led = list(unpacked_data.keys()).pop()
+                '''self.data_to_send[led] = not self.data_to_send[led]
+                if led == "Alarm":
+                    self.toggleAlarm()
+                else:
+                    self.toggleButton()
+                '''
+                #self.message_queue[client_socket].put(self.data_to_send)
+                #if client_socket not in self.outputs:
+                #    self.outputs.append(client_socket)
+
 
     def shutdown_server(self):
         self.__server_logger.info("[ SERVER ] Server is closing...")
@@ -154,7 +165,7 @@ class Server(object):
 
         client_socket.close()
 
-    def send_message(self,client_socket,message):
+    """def send_message(self,client_socket,message):
 
         packed_data  = (json.dumps(message)).encode("utf-8")
         print(type(packed_data))
@@ -165,9 +176,9 @@ class Server(object):
         else:
             if client_socket in self.outputs:
                 self.outputs.remove(client_socket)
+    """
 
-#board access
-   def toggleAlarm(self):
+    """def toggleAlarm(self):
         print (1)
         self.data_to_send["Alarma"] = not self.data_to_send["Alarma"]
         if self.data_to_send["Alarma"]:
@@ -203,3 +214,4 @@ class Server(object):
     def toggleButton(self, relay):
         RELAY.relayTOGGLE(0, relay)
         self.data_to_send["Bec"+str(relay)] = not self.data_to_send["Bec"+str(relay)]
+   """
