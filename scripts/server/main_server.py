@@ -5,6 +5,9 @@ import json
 import logging
 from ..exceptions import *
 
+import piplates.RELAYplate as RELAY
+import RPi.GPIO as GPIO
+
 import struct
 try:
     import queue
@@ -25,7 +28,7 @@ class Server(object):
             "Bec2" : False,
             "Bec3" : False,
             "Bec4" : False,
-            "Inactive" : False
+            "Bec5" : False
         }
 
         self.socket_server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
@@ -116,7 +119,7 @@ class Server(object):
 
         try:
             data=client_socket.recv(MAX_RECV_BYTES)
-            unpacked_data=json.loads(data)
+            unpacked_data=json.loads(data.decode("utf-8"))
             print(unpacked_data)
         except IOError as ierr:
             self.__server_logger.error(str(ierr))
@@ -162,3 +165,41 @@ class Server(object):
         else:
             if client_socket in self.outputs:
                 self.outputs.remove(client_socket)
+
+#board access
+   def toggleAlarm(self):
+        print (1)
+        self.data_to_send["Alarma"] = not self.data_to_send["Alarma"]
+        if self.data_to_send["Alarma"]:
+            print (2)
+            my_thread = threading.Thread(target=self.startem, args=())
+            my_thread.start()
+
+    def sensor(self):
+        print (3)
+        time.sleep(2)
+        while 1:
+
+            if GPIO.input(pir):
+                print (4)
+                return True
+
+            if self.data_to_send["Alarma"] == False:
+                return False
+
+    def startem(self):
+        if self.sensor() == True:
+            RELAY.relayON(0, 2)
+            for i in range(1, 11)
+
+            RELAY.relayON(0, 1)
+
+            RELAY.relayOFF(0, 2)
+            RELAY.relayOFF(0, 1)
+            else:
+                pass
+
+
+    def toggleButton(self, relay):
+        RELAY.relayTOGGLE(0, relay)
+        self.data_to_send["Bec"+str(relay)] = not self.data_to_send["Bec"+str(relay)]
